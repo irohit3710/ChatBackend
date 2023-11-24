@@ -6,6 +6,9 @@ const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const  mongoose  = require('mongoose');
 const cors = require('cors');
+const app = express();
+
+app.use(express.json()); 
 dotenv.config();
 
 const corsOptions ={
@@ -26,9 +29,7 @@ const connectToDb = async ()=>{
 }
 connectToDb();
 
-const app = express();
 
-app.use(express.json()); // to accept json data
 
 app.get("/", (req, res) => {
   res.send("API Running!");
