@@ -53,10 +53,10 @@ app.use("/api/message", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 const server = app.listen(
-  process.env.PORT,
+  PORT,
   console.log(`Server running on PORT ${PORT}...`)
 );
 
