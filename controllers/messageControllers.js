@@ -25,7 +25,7 @@ const sendMessage = asyncHandler(async (req, res) => {
   const { content, chatId } = req.body;
   // console.log(content)
   if (!content || !chatId) {
-    console.log("Invalid data passed into request");
+    // console.log("Invalid data passed into request");
     return res.sendStatus(400);
   }
   
@@ -37,7 +37,7 @@ const sendMessage = asyncHandler(async (req, res) => {
   
   try {
     var message = await Message.create(newMessage);
-    console.log("first")
+    // console.log("first")
     
     message = await message.populate("sender", "name");
     message = await message.populate("chat");
