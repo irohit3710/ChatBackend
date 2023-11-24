@@ -1,11 +1,9 @@
 const express = require("express");
-const connectDB = require("./config/db");
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-const path = require("path");
 const  mongoose  = require('mongoose');
 
 dotenv.config();
@@ -58,8 +56,8 @@ app.use(errorHandler);
 const PORT = process.env.PORT;
 
 const server = app.listen(
-  8000,
-  console.log(`Server running on PORT ${PORT}...`.yellow.bold)
+  process.env.PORT,
+  console.log(`Server running on PORT ${PORT}...`)
 );
 
 const io = require("socket.io")(server, {
