@@ -12,7 +12,7 @@ app.use(express.json());
 dotenv.config();
 
 const corsOptions ={
-    origin:'https://chat-frontend-liart.vercel.app', 
+    origin:'*', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
